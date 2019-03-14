@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="800" height="600"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:a="http://www.adobe.com/svg10-extensions" a:timeline="independent"
+	version="1.1"
+	baseProfile="full"
+	onload="top.load(evt)">
+  <style type="text/css">
+    .button {
+      fill: white;
+      fill-opacity: 0.5;
+      stroke: #FE8801;
+      stroke-width: 5;
+    }
+
+    .button_text {
+      fill: red;
+      font-family: Comic Sans MS;
+      font-size: 20px;
+      text-anchor: middle;
+    }
+ 
+    .info_text{
+      fill: #880000;
+      font-family: Palatino Linotype;
+      font-size: 20px;
+      text-anchor: middle;    
+    }
+
+    .info {
+      fill: #000044;
+      fill-opacity: 0.5;
+      stroke: white;
+      stroke-width: 5;
+    }
+    
+    .instruction_text {
+      font-family: Comic Sans MS;
+      fill: black;
+      font-size: 25px;
+  }
+
+    .move_text {
+      font-family: Comic Sans MS;
+      fill: green;
+      font-size: 25px;
+   }
+
+  </style>
+	
+	<defs>
+		<radialGradient id="exitGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+			<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+			<stop offset="100%" style="stop-color:rgb(111,162,247);stop-opacity:1" />
+		</radialGradient>
+		<radialGradient id="userGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+			<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1" />
+			<stop offset="100%" style="stop-color:rgb(255,255,190);stop-opacity:1" />
+		</radialGradient>
+		<radialGradient id="monsterGrad" cx="33%" cy="79%" r="50%" fx="50%" fy="50%"
+			spreadMethod="pad" gradientUnits="objectBoundingBox">
+			<stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:1"/>
+			<stop offset="55%" style="stop-color:rgb(255,0,0);stop-opacity:1"/>
+			<stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0"/>
+		</radialGradient>
+
+		
+		<clipPath id="gameclip">
+			<rect x="800" y="600" width="0" height="0">
+				<animate id="effect" attributeName="x" attributeType="XML" values="400;0"
+					begin="norm.click;zoom.click" dur="1s" fill="freeze"/>
+				<animate attributeName="y" attributeType="XML" values="300;0"
+					begin="effect.begin" dur="1s" fill="freeze"/>
+				<animate attributeName="width" attributeType="XML" values="0;800"
+					begin="effect.begin" dur="1s" fill="freeze"/>
+				<animate attributeName="height" attributeType="XML" values="0;600"
+					begin="effect.begin" dur="1s" fill="freeze"/>
+			</rect>
+		</clipPath>
+		<clipPath id="gameareaclip">
+      <rect x="20" y="20" rx="10" ry="10" width="600" height="560"/>
+    </clipPath>
+		<clipPath id="instructionclip">
+			<rect x="800" y="600" width="0" height="0">
+				<animate id="effect2" attributeName="x" attributeType="XML" values="400;0"
+					begin="again.click;0s" dur="1s" fill="freeze"/>
+				<animate attributeName="y" attributeType="XML" values="300;0"
+					begin="effect2.begin" dur="1s" fill="freeze"/>
+				<animate attributeName="width" attributeType="XML" values="0;800"
+					begin="effect2.begin" dur="1s" fill="freeze"/>
+				<animate attributeName="height" attributeType="XML" values="0;600"
+					begin="effect2.begin" dur="1s" fill="freeze"/>
+			</rect>
+		</clipPath>
+		
+		<pattern id="background_pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+            <image xlink:href="game_pattern.jpg" x="0" y="0" width="200" height="200" />
+        </pattern>
+        <pattern id="background" x="0" y="0" width="600" height="560" patternUnits="userSpaceOnUse">
+            <image xlink:href="bg2.png" x="0" y="0" width="600" height="560" />
+        </pattern>
+        <pattern id="wall" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <use xlink:href="brickwall2.svg#wall" x="0" y="0" width="20" height="20"/>
+        </pattern>
+		
+		<g id="monster">
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 50 40"
+   xml:space="preserve"
+   width="50"
+   height="40"
+   class=""
+   sodipodi:docname="ghost5.svg"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"><metadata
+     id="metadata26"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs24" /><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1109"
+     inkscape:window-height="751"
+     id="namedview22"
+     showgrid="false"
+     inkscape:zoom="8.3333779"
+     inkscape:cx="20.000007"
+     inkscape:cy="16.139914"
+     inkscape:window-x="85"
+     inkscape:window-y="8"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Capa_1" /><g
+     id="ghost"
+     transform="matrix(0.09680964,0,0,0.09680964,6.0327127e-6,-4.7833645)"><path
+       style="fill:#00d6ff"
+       d="m 112.906,230.363 c 0,99.255 -47.132,130.758 -81.583,138.999 -14.283,3.417 -20.071,20.61 -10.489,31.739 26.905,31.249 78.621,53.987 161.056,53.987 124.828,0 237.14,-100.103 237.14,-224.726 0,-84.534 -68.528,-153.063 -153.063,-153.063 -84.533,0.003 -153.061,68.531 -153.061,153.064 z"
+       data-original="#E1EAEA"
+       class=""
+       data-old_color="#00CEFF"
+       id="path2"
+       inkscape:connector-curvature="0" /><circle
+       style="fill:#ffffff"
+       cx="265.97198"
+       cy="218.69901"
+       r="52.733002"
+       data-original="#FFFFFF"
+       class=""
+       data-old_color="#17EFEF"
+       id="circle4" /><path
+       style="fill:#ffc100"
+       d="M 329.396,135.704 H 206.815 l 48.234,-71.837 c 6.23,-9.279 19.881,-9.279 26.111,0 z"
+       data-original="#F3CE72"
+       class=""
+       data-old_color="#FFBA00"
+       id="path6"
+       inkscape:connector-curvature="0" /><polygon
+       style="opacity:0.07999998;enable-background:new"
+       points="206.815,135.704 329.396,135.704 319.462,120.909 216.749,120.909 "
+       data-original="#000000"
+       class=""
+       id="polygon8" /><path
+       style="fill:#ffc100"
+       d="M 395.52,135.704 H 136.416 c -2.38,0 -4.588,1.199 -5.923,3.169 -3.621,5.346 -6.932,10.917 -9.911,16.687 -2.449,4.745 0.971,10.404 6.311,10.404 h 278.151 c 5.34,0 8.76,-5.659 6.311,-10.404 -2.979,-5.77 -6.29,-11.341 -9.911,-16.687 z"
+       data-original="#F3CE72"
+       class=""
+       data-old_color="#FFBA00"
+       id="path10"
+       inkscape:connector-curvature="0" /><path
+       style="fill:#e978a0"
+       d="m 265.968,302.486 c -12.533,0 -24.261,-3.407 -34.34,-9.324 v 39.202 c 0,18.966 15.375,34.341 34.34,34.341 18.966,0 34.341,-15.375 34.341,-34.341 v -39.202 c -10.079,5.917 -21.807,9.324 -34.341,9.324 z"
+       data-original="#E978A0"
+       class=""
+       id="path12"
+       inkscape:connector-curvature="0" /><path
+       style="opacity:0.1;enable-background:new"
+       d="m 265.968,337.434 c -4.142,0 -7.5,-3.357 -7.5,-7.5 v -27.448 c 0,-4.143 3.358,-7.5 7.5,-7.5 4.142,0 7.5,3.357 7.5,7.5 v 27.448 c 0,4.143 -3.358,7.5 -7.5,7.5 z"
+       data-original="#000000"
+       class=""
+       id="path14"
+       inkscape:connector-curvature="0" /><path
+       style="fill:#00d6ff"
+       d="m 480.047,319.004 c -6.016,0.398 -12.197,-1.27 -17.4,-5.168 -19.925,-14.928 -39.431,-18.432 -57.981,-10.415 -13.26,5.734 -28.66,-0.371 -34.393,-13.632 -5.733,-13.262 0.371,-28.661 13.633,-34.393 35.986,-15.558 75.092,-9.671 110.115,16.569 11.563,8.664 13.913,25.06 5.249,36.622 -4.765,6.359 -11.87,9.931 -19.223,10.417 z"
+       data-original="#E6E9EA"
+       class="active-path"
+       data-old_color="#29EFEF"
+       id="path16"
+       inkscape:connector-curvature="0" /><path
+       d="m 265.968,374.206 c 23.071,0 41.841,-18.77 41.841,-41.841 v -35.051 c 5.544,-3.694 10.631,-8.138 15.099,-13.265 2.721,-3.123 2.396,-7.86 -0.727,-10.582 -3.122,-2.722 -7.86,-2.397 -10.581,0.727 -11.515,13.214 -28.147,20.792 -45.631,20.792 -17.484,0 -34.116,-7.578 -45.631,-20.792 -2.721,-3.122 -7.459,-3.447 -10.582,-0.727 -3.123,2.722 -3.448,7.459 -0.727,10.582 4.468,5.127 9.555,9.572 15.099,13.265 v 35.05 c -10e-4,23.072 18.768,41.842 41.84,41.842 z M 239.127,305.03 c 8.483,3.232 17.562,4.957 26.84,4.957 9.279,0 18.358,-1.725 26.841,-4.957 v 27.336 c 0,14.8 -12.041,26.841 -26.841,26.841 -14.8,0 -26.84,-12.041 -26.84,-26.841 V 305.03 Z m 272.526,-16.906 c -1.275,-8.899 -5.941,-16.771 -13.136,-22.161 -22.956,-17.202 -47.617,-26.145 -72.184,-26.591 0.129,-3.021 0.198,-6.032 0.198,-9.008 0,-21.003 -3.983,-41.33 -11.828,-60.543 1.081,-0.958 2.034,-2.082 2.813,-3.361 2.679,-4.397 2.868,-9.758 0.503,-14.339 -3.097,-5.999 -6.584,-11.87 -10.365,-17.451 -2.741,-4.048 -7.277,-6.465 -12.133,-6.465 H 389.84 C 365.915,99.212 332.854,79.617 296.086,72.641 l -8.697,-12.953 c -4.321,-6.437 -11.53,-10.278 -19.282,-10.278 -7.752,0 -14.961,3.842 -19.282,10.278 L 240.692,71.8 c -38.751,6.119 -73.523,26.013 -98.592,56.405 h -5.684 c -4.856,0 -9.392,2.417 -12.132,6.464 -3.781,5.582 -7.269,11.453 -10.366,17.452 -2.364,4.581 -2.176,9.941 0.503,14.339 0.78,1.28 1.733,2.404 2.814,3.362 -7.846,19.213 -11.829,39.541 -11.829,60.542 0,1.526 -0.035,3.057 -0.06,4.587 -26.388,-8.125 -55.632,-5.849 -85.167,7.058 -17.006,7.433 -24.795,27.316 -17.363,44.324 7.431,17.003 27.314,24.792 44.323,17.363 18.17,-7.942 33.451,-8.232 46.522,-0.853 -15.569,39.826 -43.195,54.227 -64.085,59.225 -9.352,2.237 -16.693,9.014 -19.638,18.127 -2.905,8.991 -0.958,18.636 5.211,25.8 5.828,6.768 12.678,13.069 20.358,18.727 1.339,0.986 2.897,1.462 4.442,1.461 2.302,0 4.574,-1.057 6.045,-3.052 2.456,-3.335 1.745,-8.03 -1.591,-10.487 -6.774,-4.989 -12.792,-10.52 -17.887,-16.435 -2.768,-3.214 -3.607,-7.369 -2.305,-11.4 1.323,-4.094 4.634,-7.142 8.856,-8.151 19.739,-4.722 54.561,-19.597 73.689,-66.185 3.738,1.405 7.705,2.154 11.787,2.154 4.142,0 7.5,-3.357 7.5,-7.5 0,-4.142 -3.358,-7.5 -7.5,-7.5 -4.021,0 -7.861,-1.273 -11.104,-3.681 h -10e-4 l -0.25,-0.181 c -0.005,-0.004 -0.01,-0.006 -0.015,-0.01 -18.485,-13.594 -40.701,-14.877 -66.038,-3.803 -9.43,4.117 -20.454,-0.199 -24.573,-9.625 -4.121,-9.429 0.198,-20.452 9.625,-24.573 37.53,-16.401 74.29,-13.478 103.508,8.231 7.771,5.775 9.828,16.708 4.683,24.89 -2.205,3.507 -1.151,8.137 2.355,10.342 3.507,2.206 8.137,1.149 10.342,-2.355 9.289,-14.768 5.585,-34.498 -8.433,-44.915 -5.903,-4.387 -12.066,-8.098 -18.439,-11.161 0.121,-3.469 0.204,-6.951 0.204,-10.421 0,-19.78 3.891,-38.895 11.558,-56.898 107.23022,-1.94524 174.12532,-1.49859 268.01,0 7.667,18.002 11.558,37.118 11.558,56.898 0,3.234 -0.093,6.514 -0.257,9.805 -10.239,1.277 -20.398,4.042 -30.344,8.342 -8.253,3.567 -14.624,10.136 -17.937,18.494 -3.313,8.358 -3.173,17.507 0.395,25.761 0.523,1.209 1.121,2.397 1.776,3.528 2.076,3.585 6.665,4.81 10.249,2.731 3.584,-2.075 4.808,-6.664 2.732,-10.249 -0.363,-0.628 -0.696,-1.288 -0.988,-1.963 -1.978,-4.576 -2.055,-9.648 -0.219,-14.281 1.837,-4.634 5.368,-8.274 9.944,-10.253 33.411,-14.442 69.863,-8.873 102.642,15.688 3.989,2.989 6.575,7.352 7.282,12.286 0.707,4.934 -0.549,9.848 -3.538,13.836 -3.27,4.363 -8.269,7.072 -13.715,7.433 -4.438,0.28 -8.844,-1.018 -12.408,-3.688 -21.767,-16.307 -43.33,-20.284 -64.117,-11.849 l -0.187,0.075 c -0.36,0.145 -0.719,0.292 -1.078,0.447 l -0.072,0.03 c -2.85,1.233 -5.975,1.737 -9.039,1.465 -4.113,-0.369 -7.77,2.674 -8.139,6.801 -0.37,4.125 2.675,7.77 6.801,8.139 0.748,0.067 1.498,0.104 2.248,0.121 -36.058,79.844 -121.106,134.528 -211.669,134.528 -45.903,0 -84.279,-7.11 -114.065,-21.133 -3.75,-1.764 -8.216,-0.156 -9.98,3.592 -1.764,3.747 -0.157,8.216 3.591,9.98 31.799,14.971 72.325,22.561 120.455,22.561 100.248,0 194.184,-63.07 229.736,-153.791 14.865,-4.872 30.129,-1.243 46.522,11.039 5.837,4.374 12.929,6.724 20.18,6.724 0.736,0 1.475,-0.024 2.213,-0.073 9.819,-0.65 18.833,-5.535 24.73,-13.405 5.386,-7.198 7.652,-16.062 6.376,-24.962 z M 369.656,128.204 H 333.395 L 308.501,91.129 c 23.12,7.043 44.114,19.76 61.155,37.075 z M 261.277,68.048 c 1.553,-2.313 4.042,-3.64 6.829,-3.64 2.786,0 5.275,1.326 6.829,3.64 l 40.392,60.156 h -94.442 z m -32.544,21.559 -25.915,38.597 H 162.275 C 180.646,109.506 203.5,96.232 228.733,89.607 Z m -101.209,68.858 c 2.732,-5.241 5.79,-10.372 9.094,-15.261 h 9.046 c 0.004,0 0.008,0.001 0.012,0.001 0.006,0 0.012,-0.001 0.018,-0.001 h 183.693 c 0.005,0 0.011,0.001 0.016,0.001 0.005,0 0.009,-0.001 0.014,-0.001 h 56.825 c 0.006,0 0.012,0.001 0.018,0.001 0.004,0 0.008,-0.001 0.012,-0.001 h 9.046 c 3.304,4.889 6.361,10.019 9.094,15.261 z"
+       data-original="#000000"
+       class=""
+       id="path18"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ssccccscccccscscssscccccsccccscccscccsccccscccccccsccccccccssscccccccccccccsccsccsccccccccscccccccccccscccsccsccccccccsccccccccccsssssssssccc" /></g>
+       <g inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="eye"
+     transform="translate(0,-472)">
+     <circle
+       style="opacity:1;fill:#ffaaee;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+       id="path3720"
+       cx="26"
+       cy="490"
+       r="0.6">
+       <animateTransform
+         attributeName="transform"
+         dur="1s"
+         type="rotate"
+         repeatCount="indefinite"
+         from="0 25.7 488"
+         to="360 25.7 488" />
+     </circle>
+     <circle
+       style="opacity:1;fill:none;stroke:#000000;stroke-width:1.45;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.9"
+       id="path19"
+       cx="25.7"
+       cy="488"
+       r="4.6">
+
+   </circle>
+ </g>
+</svg>
+            
+		</g>
+		<g id="special_monster">
+            <use xlink:href="superghost.svg#superghost"/>
+        </g>
+		
+		<g id="bullet">
+			<circle cx="5" cy="5" r="5" style="fill:red"/>
+			<circle cx="6" cy="3" r="1" style="fill:pink"/>
+		</g>
+		<g id="monBullet">
+			<circle cx="5" cy="5" r="5" style="fill:orange"/>
+			<circle cx="6" cy="3" r="1" style="fill:yellow"/>
+		</g>
+		<g id="flower">
+		    <use xlink:href="mushroom.svg#mushroom"/>
+	    </g>
+	    <g id="exit">
+            <use xlink:href="destination.svg#destination"/>
+        </g>
+        <g id="portal">
+            <use xlink:href="instinct.svg#instinct" />
+        </g>
+	</defs>
+
+	<!-- Start page -->
+	<g id="startpage" style="clip-path:url(#instructionclip)">
+		<rect x="0" y="0" width="800" height="600" style="fill:url(#background_pattern);stroke:black;stroke-width:4"/>
+		<rect x="20" y="20" width="600" height="560" style="fill:#FAF677;stroke:black;stroke-width:2" />
+        <text id="titleText" x="315" y="100" style="font-family: Georgia; font-weight: bold; font-size: 40px; fill: black; text-anchor: middle">SVG Platform Game</text>
+        <text id="authorInfoText" x="315" y="125" style="font-family: Courier New; font-size: 20px; fill: black; text-anchor: middle">Designer: CAI ZHIHAN 20498526</text>
+        <text class="instruction_text" x="60" y="170">You are Super-Mario. You need to collect all</text>
+        <text class="instruction_text" x="60" y="200">mushrooms. Use</text>
+        <text class="move_text" x="252" y="200">A</text> 
+        <text class="move_text" x="275" y="200">D</text> 
+        <text class="instruction_text" x="300" y="200">to move and</text> 
+        <text class="move_text" x="445" y="200">W</text> 
+        <text class="instruction_text" x="475" y="200" >to jump.</text>
+        <text class="instruction_text" x="60" y="230">Monsters are going to stop you on the way.</text>
+        <text class="instruction_text" x="60" y="260">Use</text> 
+        <text class="move_text" x="110" y="260">space</text> 
+        <text class="instruction_text" x="180" y="260">to shoot and kill them. Once they</text>
+        <text class="instruction_text" x="60" y="290">catch you, you will die. Pick up mushrooms</text>
+        <text class="instruction_text" x="60" y="320">as quickly as possible. If you reach the</text>
+        <text class="instruction_text" x="60" y="350">end point before time runs out, the time</text>
+        <text class="instruction_text" x="60" y="380">remaining will be added to your score. You</text>
+        <text class="instruction_text" x="60" y="410">can select</text> 
+        <text class="move_text" x="185" y="410">zoom</text> 
+        <text class="instruction_text" x="250" y="410">mode to earn double points.</text>
+      
+      
+		<g id="zoom" onclick="top.zoomMode()" >
+			<rect class="button" x="360" y="460" width="200" height="50" rx="10" ry="10" />
+            <text class="button_text" id="normalModeText" x="460" y="490">Zoom Mode</text>
+		</g>
+			
+		<g id="norm" onclick="top.normalMode()">
+			<rect class="button" x="70" y="460" width="200" height="50" rx="10" ry="10" />
+            <text class="button_text" id="normalModeText" x="170" y="490">Normal Mode</text>
+		</g>
+	</g>
+	
+	<g id="game" style="clip-path:url(#gameclip)">
+		<rect width="800" height="600" style="fill:url(#background_pattern);stroke:black;stroke-width:5" />
+		
+		<rect x="20" y="20" width="600" height="560" style="fill:black;stroke:black;stroke-width:5" />
+		
+		<!-- Level -->
+		<g transform="translate(640, 100)">
+			<text x="70" y="0"
+				style="fill:#black;font-size:25px;font-weight:bold;text-anchor:middle">
+					Level:
+			</text>
+			<rect x="0" y="10" width="140" height="35" style="fill:white;stroke:orange;stroke-width:3" />
+			<text id="Level" x="70" y="36"
+				style="fill:#black;font-size:25px;text-anchor:middle">1</text>
+		</g>
+		
+		<!-- Score -->
+		<g transform="translate(640, 200)">
+			<text x="70" y="0"
+				style="fill:black;font-size:25px;font-weight:bold;text-anchor:middle">
+					Score:
+			</text>
+			<rect x="0" y="10" width="140" height="35" style="fill:white;stroke:orange;stroke-width:3" />
+			<text id="score" x="70" y="36"
+				style="fill:#black;font-size:25px;text-anchor:middle">0</text>
+		</g>
+		
+		<!-- Time -->
+		<g transform="translate(640, 300)">
+			<text x="70" y="0"
+				style="fill:black;font-size:25px;font-weight:bold;text-anchor:middle">
+					Time:
+			</text>
+			<rect x="0" y="10" width="140" height="35" style="fill:white;stroke:orange;stroke-width:3" />
+			<text id="TimeRemain" x="70" y="36"
+				style="fill:#black;font-size:25px;text-anchor:middle">100</text>
+		</g>
+		
+		<!-- Bullet remain -->
+		<g transform="translate(640, 400)">
+			<text x="70" y="0"
+				style="fill:black;font-size:25px;font-weight:bold;text-anchor:middle">
+					Bullet:
+			</text>
+			<rect x="0" y="10" width="140" height="35" style="fill:white;stroke:orange;stroke-width:3" />
+			<text id="bulletRemain" x="70" y="36"
+				style="fill:#black;font-size:25px;text-anchor:middle">8</text>
+		</g>
+		
+		<!-- cheat mode -->
+		<g id="cheat" transform="translate(710,500)" style = "visibility:hidden">
+			<text x="0" y="0"
+			style="fill:yellow;font-size:25px;font-weight:bold;text-anchor:middle">
+				Cheat Mode
+		</text>
+		</g>
+					
+		<!-- Move Area -->
+		<g style="clip-path:url(#gameareaclip)">
+			<g transform="translate(20,20)">
+				<g id="gamearea" transform="translate(0,0)" width="600" height="560">
+					<rect x="0" y="0" width="600" height="560" style="fill:url(#background)" />
+				
+					<!-- Platform -->
+					<g id="platforms">
+					
+						<rect x="0" y="60" width="60" height="20" style="fill:url(#wall)"/>
+						<rect x="40" y="80" width="60" height="20" style="fill:url(#wall)"/>
+						<rect x="80" y="100" width="60" height="20" style="fill:url(#wall)"/>
+						<rect x="80" y="120" width="140" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="460" y="40" width="140" height="20" style="fill:url(#wall)"/>
+						<rect x="420" y="60" width="180" height="20" style="fill:url(#wall)"/>
+						<rect x="380" y="80" width="160" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="360" y="160" width="140" height="20" style="fill:url(#wall)"/>
+						<rect x="320" y="180" width="80" height="20" style="fill:url(#wall)"/>
+						<rect x="280" y="200" width="60" height="20" style="fill:url(#wall)"/>
+						<rect x="320" y="220" width="20" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="40" y="200" width="20" height="40" style="fill:url(#wall)"/>
+						<rect x="60" y="180" width="20" height="60" style="fill:url(#wall)"/>
+						<rect x="0" y="240" width="120" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="520" y="260" width="80" height="20" style="fill:url(#wall)"/>
+						<rect x="440" y="280" width="160" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="250" y="300" width="40" height="20" style="fill:url(#wall)"/>
+						<rect x="250" y="320" width="120" height="20" style="fill:url(#wall)"/>
+						<rect x="250" y="340" width="160" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="520" y="360" width="80" height="20" style="fill:url(#wall)"/>
+						<rect x="500" y="380" width="100" height="20" style="fill:url(#wall)"/>
+						<rect x="460" y="400" width="140" height="20" style="fill:url(#wall)"/>
+						<rect x="420" y="420" width="120" height="20" style="fill:url(#wall)"/>
+	
+						<rect x="420" y="420" width="120" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="0" y="320" width="60" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="340" width="100" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="360" width="140" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="380" width="100" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="400" width="80" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="420" width="60" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="220" y="400" width="40" height="20" style="fill:url(#wall)"/>
+						<rect x="200" y="420" width="180" height="20" style="fill:url(#wall)"/>
+						<rect x="140" y="440" width="140" height="20" style="fill:url(#wall)"/>
+						
+						<rect x="0" y="480" width="40" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="500" width="80" height="40" style="fill:url(#wall)"/>
+						<rect x="120" y="520" width="80" height="20" style="fill:url(#wall)"/>
+						<rect x="300" y="520" width="80" height="20" style="fill:url(#wall)"/>
+						<rect x="520" y="480" width="40" height="40" style="fill:url(#wall)"/>
+						<rect x="480" y="520" width="120" height="20" style="fill:url(#wall)"/>
+						<rect x="0" y="540" width="600" height="20" style="fill:url(#wall)"/>
+						
+						<rect id="verticalPlatform" x="180" y="360" width="40" height="20" style="fill:#613030;opacity:0.9" rx="5.79165" ry="5.79165"/>
+						
+					</g>
+					
+					<!-- transmission ports -->
+					<g id="port1" transform="translate(560,220)">
+						<use xlink:href="#portal"/>
+					</g>
+					<g id="port2" transform="translate(0,440)">
+						<use xlink:href="#portal"/>
+					</g>
+					
+					<!-- door -->
+					<g id="door" style = "visibility:visible" transform="translate(540,300)" >
+						<use xlink:href="#exit"/>
+                    </g>
+					
+					<g id="monsters"/>
+					
+					<g id="bullets"/>
+					
+					<g id="flowers"/>
+					
+					<!-- Player -->
+					<g>
+						<text id="nameBar" x="0" y="0"
+							style="fill:gold;font-size:16px;text-anchor:middle">Anonymous</text>
+					</g>
+					<g id="player">
+						<use xlink:href="super-mario.svg#mario" x="0" y="0" />
+					</g>
+				</g>
+				<!-- High Score Table -->
+				<g id="highscoretable"  style = " visibility : hidden" transform="translate(40,40)">
+					<rect width="520" height="480" style="fill:white;stroke:red;stroke-width:2"/>
+					
+					<text x="260" y="40"
+						style="fill:red;font-size:40px;font-weight:bold;text-anchor:middle">
+							Game Over!!
+					</text>
+	
+					
+					<text x="260" y="80"
+						style="fill:gold;font-size:30px;font-weight:bold;text-anchor:middle">
+							High Score Table
+					</text>
+					<text id="highscoretext" y="90" style="font-size: 20px;font-weight:bold"/>
+					<g id="again" onclick="top.again()" transform="translate(190,420)">
+						<rect class="button" x="0" y="0" width="140" height="40" rx="10" ry="10" />
+                        <text class="button_text" id="normalModeText" x="70" y="25">
+							Again?
+						</text>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>
